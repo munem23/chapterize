@@ -248,6 +248,7 @@ class Book():
             for num, chapter in zip(chapterNums, self.chapters):
                 path = outDir + '/' + num + ext
                 logging.debug(chapter)
+                logging.debug(chapter[num])
                 chapter = '\n'.join(chapter)
                 with open(path, 'w') as f:
                     f.write(chapter)
