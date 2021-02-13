@@ -182,7 +182,7 @@ class Book():
         for i, headingLocation in enumerate(self.headingLocations):
             if i != lastHeading:
                 nextHeadingLocation = self.headingLocations[i+1]
-                chapters.append(self.lines[headingLocation-2:nextHeadingLocation])
+                chapters.append(self.lines[headingLocation:nextHeadingLocation])
         return chapters
 
     def zeroPad(self, numbers):
@@ -248,7 +248,6 @@ class Book():
             for num, chapter in zip(chapterNums, self.chapters):
                 path = outDir + '/' + num + ext
                 logging.debug(chapter)
-                logging.debug(chapter[num])
                 chapter = '\n'.join(chapter)
                 with open(path, 'w') as f:
                     f.write(chapter)
